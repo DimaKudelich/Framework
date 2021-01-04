@@ -1,7 +1,6 @@
 package service;
 
 public class SearchPageDataReader {
-
     public static final String TESTDATA_SEARCH_QUERY = "testdata.searchQuery";
     public static final String TESTDATA_FILTER_MAX_PRICE = "testdata.filter.max.price";
     public static final String TESTDATA_SEARCH_WRONG_LAYOUT = "testdata.wrongLayoutSearchQuery";
