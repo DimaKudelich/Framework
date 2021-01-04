@@ -14,7 +14,6 @@ public class ProductPage extends AbstractPage {
     @FindBy(xpath = "//div[@class='j-size-list size-list j-smart-overflow-instance']/label")
     private WebElement productSize;
 
-    //"//label[@class = 'j-size tooltipstered']"
     @FindBy(xpath = "//button[@class='c-btn-main-lg-v1 j-add-to-card']")
     private WebElement addToBasket;
 
@@ -58,12 +57,12 @@ public class ProductPage extends AbstractPage {
         return this;
     }
 
-    public ProductPage clickOnAddToCartButton() {
+    public ProductPage clickOnAddToBasketButton() {
         this.addToBasket.click();
         return this;
     }
 
-    public BasketPage clickOnGoToCartButton() {
+    public BasketPage clickOnGoToBasketButton() {
         driverWait.until(ExpectedConditions
                 .presenceOfElementLocated(byOpenBasket)).click();
         return new BasketPage();

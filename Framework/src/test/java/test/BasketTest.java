@@ -21,14 +21,14 @@ public class BasketTest extends CommonCondition {
                 .clickOnProductSizeLabel()
                 .getProductSizeLabelText();
 
-        BasketPage cartPage = productPage
-                .clickOnAddToCartButton()
-                .clickOnGoToCartButton();
+        BasketPage basketPage = productPage
+                .clickOnAddToBasketButton()
+                .clickOnGoToBasketButton();
 
-        String actualName = cartPage
+        String actualName = basketPage
                 .getProductName();
 
-        String actualSize = cartPage
+        String actualSize = basketPage
                 .getProductSize();
 
         System.out.println(expectedSize);

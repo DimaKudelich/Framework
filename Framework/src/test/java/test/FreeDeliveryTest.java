@@ -7,17 +7,16 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class FreeDeliveryTest extends CommonCondition {
     @Test
-    public void feeDeliveryConditionTest() {
-        String deliveryCondition = "Бесплатно";
+    public void freeDeliveryConditionTest() {
+        String expectedDeliveryCondition = "Бесплатно";
 
-        String expectedDeliveryCondition = new MainPage()
+        String actualDeliveryCondition = new MainPage()
                 .openPage()
                 .openFreeDelivery()
                 .clickOnFirstAddressBox()
                 .getFirstAddressBoxDeliveryCondition();
 
-        assertThat(deliveryCondition)
-                .isEqualTo(expectedDeliveryCondition);
-
+        assertThat(expectedDeliveryCondition)
+                .isEqualTo(actualDeliveryCondition);
     }
 }

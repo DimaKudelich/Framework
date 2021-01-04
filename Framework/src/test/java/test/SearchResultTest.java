@@ -12,6 +12,7 @@ public class SearchResultTest extends CommonCondition {
     @Test
     public void testSearchForProduct() {
         String currentQuery = "Кроссовки";
+
         List<String> actualProductNames = new MainPage()
                 .openPage()
                 .enterSearchQuery(currentQuery)
@@ -25,11 +26,13 @@ public class SearchResultTest extends CommonCondition {
     public void testSearchForProductWrong() {
         String correctQuery = "Кроссовки";
         String wrongLayoutQuery = "rhjccjdrb";
+
         List<String> actualProductNames = new MainPage()
                 .openPage()
                 .enterSearchQuery(wrongLayoutQuery)
                 .searchForQuery()
                 .getResultList();
+
         assertThat(actualProductNames).allMatch(item -> item.contains(correctQuery));
     }
 }
