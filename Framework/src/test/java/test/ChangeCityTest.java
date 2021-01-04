@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ChangeCityTest extends CommonCondition {
     @Test
-    public void changeRegionFromMinskToBaranovichi() {
+    public void changeCityTest() {
         String productPageUrl = "https://by.wildberries.ru/catalog/13612368/detail.aspx";
 
         ProductPage productPage = new ProductPage(productPageUrl);
@@ -17,6 +17,7 @@ public class ChangeCityTest extends CommonCondition {
                 .clickOnCurrentRegionSpanInNavBar()
                 .getNewRegionSpanInPopUpName();
 
+        System.out.println(newRegionName);
 
         String expectedNewRegionName = productPage
                 .clickOnNewRegionSpanInPopUp()

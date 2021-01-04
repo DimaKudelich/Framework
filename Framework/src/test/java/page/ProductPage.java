@@ -52,45 +52,45 @@ public class ProductPage extends AbstractPage {
         return this;
     }
 
-    public ProductPage clickOnProductSizeLabel(){
+    public ProductPage clickOnProductSizeLabel() {
         this.productSize.click();
         return this;
     }
 
-    public ProductPage clickOnAddToCartButton(){
+    public ProductPage clickOnAddToCartButton() {
         this.addToBasket.click();
         return this;
     }
 
-    public BasketPage clickOnGoToCartButton(){
+    public BasketPage clickOnGoToCartButton() {
         driverWait.until(ExpectedConditions
                 .presenceOfElementLocated(byOpenBasket)).click();
         return new BasketPage();
     }
 
-    public String getProductName(){
+    public String getProductName() {
         return this.productName.getText();
     }
 
 
-    public ProductPage clickOnCurrentRegionSpanInNavBar(){
+    public ProductPage clickOnCurrentRegionSpanInNavBar() {
         this.currentRegion.click();
         return this;
     }
 
-    public ProductPage clickOnNewRegionSpanInPopUp(){
+    public ProductPage clickOnNewRegionSpanInPopUp() {
         driverWait.until(ExpectedConditions
                 .presenceOfElementLocated(byNewRegion)).click();
         return this;
     }
 
-    public String getNewRegionSpanInPopUpName(){
-        return  driverWait.until(ExpectedConditions
+    public String getNewRegionSpanInPopUpName() {
+        return driverWait.until(ExpectedConditions
                 .presenceOfElementLocated(byNewRegion)).getText();
     }
 
-    public String getCurrentRegionNearTheProductName(){
-        return  driverWait.until(ExpectedConditions
+    public String getCurrentRegionNearTheProductName() {
+        return driverWait.until(ExpectedConditions
                 .presenceOfElementLocated(byCurrentRegion)).getText();
     }
 }
