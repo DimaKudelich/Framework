@@ -8,23 +8,24 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class ProductPage extends AbstractPage {
     private String productPageAddress;
 
+    @FindBy(xpath = "//span[@class='name']")
+    private WebElement productName;
+
     @FindBy(xpath = "//div[@class='j-size-list size-list j-smart-overflow-instance']/label")
     private WebElement productSize;
+
+    //"//label[@class = 'j-size tooltipstered']"
+    @FindBy(xpath = "//button[@class='c-btn-main-lg-v1 j-add-to-card']")
+    private WebElement addToBasket;
+
+    @FindBy(xpath = "//a[@class='c-btn-base-lg-v1 j-go-to-basket']")
+    private WebElement openBasket;
 
     @FindBy(xpath = "//span[@class='geo j-geocity-text']")
     private WebElement currentRegion;
 
     @FindBy(xpath = "//li[@data-city-id='1985372']/span")
     private WebElement newRegion;
-
-    @FindBy(xpath = "//span[@class='name']")
-    private WebElement productName;
-
-    @FindBy(xpath = "//button[@class='c-btn-main-lg-v1 j-add-to-card']")
-    private WebElement addToBasket;
-
-    @FindBy(xpath = "//a[@class='c-btn-base-lg-v1 j-go-to-basket']")
-    private WebElement openBasket;
 
     private static final By byOpenBasket = By
             .xpath("//a[@class='c-btn-base-lg-v1 j-go-to-basket']");

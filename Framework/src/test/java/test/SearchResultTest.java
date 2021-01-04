@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SearchResultTest extends CommonCondition {
     @Test
     public void testSearchForProduct() {
-        String currentQuery = SearchPageDataReader.getSearchQuery();
+        String currentQuery = "Кроссовки";
         List<String> actualProductNames = new MainPage()
                 .openPage()
                 .enterSearchQuery(currentQuery)

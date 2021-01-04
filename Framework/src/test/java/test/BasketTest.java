@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BasketTest extends CommonCondition {
     @Test
     public void addToCartTest() {
-        String productPageUrl = "https://by.wildberries.ru/catalog/13612368/detail.aspx";
+        String productPageUrl = "https://by.wildberries.ru/catalog/16363902/detail.aspx";
 
         ProductPage productPage = new ProductPage(productPageUrl);
 
@@ -31,6 +31,7 @@ public class BasketTest extends CommonCondition {
         String actualSize = cartPage
                 .getProductSize();
 
+        System.out.println(expectedSize);
         assertThat(actualName).contains(expectedName);
         assertThat(actualSize).isEqualTo(expectedSize);
     }
