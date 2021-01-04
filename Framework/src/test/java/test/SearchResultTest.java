@@ -1,0 +1,33 @@
+package test;
+
+import org.testng.annotations.Test;
+import page.MainPage;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class SearchResultTest extends CommonCondition {
+    @Test
+    public void testSearchForProduct() {
+        String currentQuery = "Кроссовки";
+        List<String> actualProductNames = new MainPage()
+                .openPage()
+                .enterSearchQuery(currentQuery)
+                .clickSearchButton()
+                .getListOfProductNames();
+        assertThat(actualProductNames).allMatch(item -> item.contains(currentQuery));
+    }
+
+    @Test
+    public void testSearchForProductWrong() {
+        String correctQuery = "Кроссовки";
+        String wrongLayoutQuery = "rhjccjdrb";
+        List<String> actualProductNames = new MainPage()
+                .openPage()
+                .enterSearchQuery(wrongLayoutQuery)
+                .clickSearchButton()
+                .getListOfProductNames();
+        assertThat(actualProductNames).allMatch(item -> item.contains(correctQuery));
+    }
+}
