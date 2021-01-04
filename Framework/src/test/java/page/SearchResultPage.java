@@ -27,21 +27,49 @@ public class SearchResultPage extends AbstractPage {
 
     public SearchResultPage() {
         super();
-        logger.info("Opened search results page " + driver.getCurrentUrl());
     }
 
     @Override
     protected SearchResultPage openPage() {
-        logger.error("Cannot open SearchResultsPage by itself! Throwing exception");
         throw new RuntimeException("Cannot open SearchResultsPage by itself!");
     }
 
-    public List<String> getListOfProductNames() {
+    public List<String> getResultList() {
         driverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(byProductNamesLocator));
+
         List<String> productNameList = new ArrayList<>();
         for(WebElement textElement : productNamesList) {
             productNameList.add(textElement.getText());
         }
+
         return productNameList;
+    }
+
+    public SearchResultPage enterMaxPrice(String maxPrice){
+        driverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(byMaxPriceInput));
+
+        this.maxPriceInput.sendKeys(Keys.CONTROL + "a");
+        this.maxPriceInput.sendKeys(Keys.DELETE);
+        this.maxPriceInput.sendKeys(maxPrice);
+        this.maxPriceInput.sendKeys(Keys.ENTER);
+
+        return this;
+    }
+
+    public List<String> getListOfProductPrices() {
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        driverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(byProductPriceLocator));
+        List<String> productPrices = new ArrayList<>();
+
+        for(WebElement element : productPriceList) {
+            productPrices.add(element.getText());
+        }
+
+        return productPrices;
     }
 }

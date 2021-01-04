@@ -14,8 +14,8 @@ public class SearchResultTest extends CommonCondition {
         List<String> actualProductNames = new MainPage()
                 .openPage()
                 .enterSearchQuery(currentQuery)
-                .clickSearchButton()
-                .getListOfProductNames();
+                .searchForQuery()
+                .getResultList();
         assertThat(actualProductNames).allMatch(item -> item.contains(currentQuery));
     }
 
@@ -26,8 +26,8 @@ public class SearchResultTest extends CommonCondition {
         List<String> actualProductNames = new MainPage()
                 .openPage()
                 .enterSearchQuery(wrongLayoutQuery)
-                .clickSearchButton()
-                .getListOfProductNames();
+                .searchForQuery()
+                .getResultList();
         assertThat(actualProductNames).allMatch(item -> item.contains(correctQuery));
     }
 }

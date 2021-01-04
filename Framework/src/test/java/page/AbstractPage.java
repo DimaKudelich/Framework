@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractPage {
     protected WebDriver driver;
-    protected static final Logger logger = LogManager.getRootLogger();
-    protected abstract AbstractPage openPage();
     protected static final int WAIT_TIMEOUT_SECONDS = 6;
     protected final WebDriverWait driverWait;
+
+    protected abstract AbstractPage openPage();
 
     protected AbstractPage()
     {
