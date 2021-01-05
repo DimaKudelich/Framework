@@ -3,13 +3,14 @@ package test;
 import org.testng.annotations.Test;
 import page.ProductPage;
 import page.VisitedHistoryPage;
+import service.ProductPageDataReader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class VisitedHistoryTest extends CommonCondition {
     @Test
     public void testPresenceInVisitedAfterVisitingProductPage() {
-        String productPageUrl = "https://by.wildberries.ru/catalog/13612368/detail.aspx";
+        String productPageUrl = ProductPageDataReader.getProductPageUrl();
 
         String expectedProductName = new ProductPage(productPageUrl)
                 .openPage()
