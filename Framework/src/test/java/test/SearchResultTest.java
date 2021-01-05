@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SearchResultTest extends CommonCondition {
     @Test
     public void testSearchForProduct() {
-        String currentQuery = SearchPageDataReader.getSearchQuery();
+        String currentQuery = "Кроссовки";
 
         List<String> actualProductNames = new MainPage()
                 .openPage()
@@ -24,8 +24,8 @@ public class SearchResultTest extends CommonCondition {
 
     @Test
     public void testSearchForProductWrong() {
-        String correctQuery = SearchPageDataReader.getSearchQuery();
-        String wrongLayoutQuery = SearchPageDataReader.getWrongKeyboardLayoutSearchQuery();
+        String correctQuery = "Кроссовки";
+        String wrongLayoutQuery = "rhjccjdrb";
 
         List<String> actualProductNames = new MainPage()
                 .openPage()
