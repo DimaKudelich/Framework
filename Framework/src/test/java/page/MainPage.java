@@ -53,6 +53,7 @@ public class MainPage extends AbstractPage {
     private WebElement city;
 
     public String getCurrentCityName(){
+        driverWait.until(ExpectedConditions.invisibilityOf(city));
         return changeCityButton.getText();
     }
 
@@ -65,12 +66,8 @@ public class MainPage extends AbstractPage {
         return driverWait.until(ExpectedConditions.visibilityOf(city)).getText();
     }
 
-    private static final By byCurrentRegionNearTheProduct = By.xpath("//li[@class = 'geocity item']");
-    private static final By byNewRegionSpanInPopUp = By.xpath("//li[@data-city-id='1985372']/span");
-
-    public MainPage chooseNewCity() throws InterruptedException {
+    public MainPage chooseNewCity(){
         city.click();
-        Thread.sleep(1000);
         return this;
     }
 }
