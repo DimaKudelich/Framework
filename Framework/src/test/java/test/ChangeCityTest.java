@@ -9,15 +9,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ChangeCityTest extends CommonCondition {
     @Test
     public void changeCityTest() throws InterruptedException {
-        MainPage mainPage = new MainPage().openPage().openCities();
+        MainPage mainPage = new MainPage();
 
-        Thread.sleep(1000);
-        String expectedCity = mainPage.getNewCityName();
+        String expectedCity = mainPage.
+                openPage().
+                openCities().
+                getNewCityName();
 
-        mainPage = mainPage.chooseNewCity();
-        Thread.sleep(1000);
-
-        String actualCity = mainPage.getCurrentCityName();
+        String actualCity = mainPage.
+                chooseNewCity().
+                getCurrentCityName();
 
         assertThat(actualCity).isEqualTo(expectedCity);
     }

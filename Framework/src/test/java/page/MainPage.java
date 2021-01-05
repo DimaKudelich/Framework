@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.reporters.jq.Main;
 
 public class MainPage extends AbstractPage {
     private static final String ADDRESS = "https://by.wildberries.ru/";
@@ -54,8 +53,7 @@ public class MainPage extends AbstractPage {
     private WebElement city;
 
     public String getCurrentCityName(){
-        return  driverWait.until(ExpectedConditions
-                .presenceOfElementLocated(byCurrentRegionNearTheProduct)).getText();
+        return changeCityButton.getText();
     }
 
     public MainPage openCities(){
@@ -64,16 +62,15 @@ public class MainPage extends AbstractPage {
     }
 
     public String getNewCityName(){
-        return  driverWait.until(ExpectedConditions
-                .presenceOfElementLocated(byNewRegionSpanInPopUp)).getText();
+        return driverWait.until(ExpectedConditions.visibilityOf(city)).getText();
     }
 
     private static final By byCurrentRegionNearTheProduct = By.xpath("//li[@class = 'geocity item']");
     private static final By byNewRegionSpanInPopUp = By.xpath("//li[@data-city-id='1985372']/span");
 
-    public MainPage chooseNewCity(){
-        driverWait.until(ExpectedConditions
-                .presenceOfElementLocated(byNewRegionSpanInPopUp)).click();
+    public MainPage chooseNewCity() throws InterruptedException {
+        city.click();
+        Thread.sleep(1000);
         return this;
     }
 }
