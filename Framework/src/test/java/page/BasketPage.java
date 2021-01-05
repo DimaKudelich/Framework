@@ -15,6 +15,7 @@ public class BasketPage extends AbstractPage {
     @Override
     public BasketPage openPage()
     {
+        logger.error("Basket page cant be opened by itself");
         throw new RuntimeException();
     }
 

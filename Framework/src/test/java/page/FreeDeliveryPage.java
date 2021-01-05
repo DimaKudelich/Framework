@@ -9,6 +9,7 @@ public class FreeDeliveryPage extends AbstractPage {
 
 
     public FreeDeliveryPage clickOnFirstAddressBox(){
+        logger.info("CLick on first delivery address");
         driverWait.until(ExpectedConditions
                 .presenceOfElementLocated(byFirstAddressLabel)).click();
         return this;
@@ -25,6 +26,7 @@ public class FreeDeliveryPage extends AbstractPage {
 
     @Override
     protected SearchResultPage openPage() {
+        logger.error("Delivery page cant be opened by itself");
         throw new RuntimeException("Cannot open SearchResultsPage by itself!");
     }
 }

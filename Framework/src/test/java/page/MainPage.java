@@ -24,6 +24,7 @@ public class MainPage extends AbstractPage {
     @Override
     public MainPage openPage()
     {
+        logger.info("Open main page");
         driver.navigate().to(ADDRESS);
         return this;
     }
@@ -34,6 +35,7 @@ public class MainPage extends AbstractPage {
     }
 
     public SearchResultPage searchForQuery() {
+        logger.info("Search for query");
         searchButton.click();
         return new SearchResultPage();
     }
@@ -66,6 +68,7 @@ public class MainPage extends AbstractPage {
     }
 
     public MainPage chooseNewCity(){
+        logger.info("Choose new city from list");
         newCity.click();
         return this;
     }

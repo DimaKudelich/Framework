@@ -17,6 +17,7 @@ public class VisitedHistoryPage extends AbstractPage {
     @Override
     public VisitedHistoryPage openPage()
     {
+        logger.info("Open history page");
         driver.navigate().to(BASE_URL);
         return this;
     }

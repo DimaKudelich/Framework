@@ -31,6 +31,7 @@ public class SearchResultPage extends AbstractPage {
 
     @Override
     protected SearchResultPage openPage() {
+        logger.error("Search result's page cant be opened by itself");
         throw new RuntimeException("Cannot open SearchResultsPage by itself!");
     }
 
@@ -46,6 +47,7 @@ public class SearchResultPage extends AbstractPage {
     }
 
     public SearchResultPage enterMaxPrice(String maxPrice){
+        logger.info("Enter a max price as filter");
         driverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(byMaxPriceInput));
 
         this.maxPriceInput.sendKeys(Keys.CONTROL + "a");

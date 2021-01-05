@@ -38,6 +38,7 @@ public class ProductPage extends AbstractPage {
 
     @Override
     public ProductPage openPage() {
+        logger.info("Open product page");
         driver.navigate().to(productPageAddress);
         return this;
     }
@@ -48,6 +49,7 @@ public class ProductPage extends AbstractPage {
     }
 
     public ProductPage clickOnAddToBasketButton() {
+        logger.info("Add new product to basket");
         this.addToBasket.click();
         return this;
     }
