@@ -20,18 +20,8 @@ public class ProductPage extends AbstractPage {
     @FindBy(xpath = "//a[@class='c-btn-base-lg-v1 j-go-to-basket']")
     private WebElement openBasket;
 
-    @FindBy(xpath = "//span[@class='geo j-geocity-text']")
-    private WebElement currentRegion;
-
-    @FindBy(xpath = "//li[@data-city-id='1985372']/span")
-    private WebElement newRegion;
-
     private static final By byOpenBasket = By
             .xpath("//a[@class='c-btn-base-lg-v1 j-go-to-basket']");
-
-    private static final By byCurrentRegion = By.xpath("//span[@class='delivery-cond-locality']");
-
-    private static final By byNewRegion = By.xpath("//li[@data-city-id='1985372']/span");
 
     public ProductPage(String pageAddress) {
         super();
@@ -70,27 +60,5 @@ public class ProductPage extends AbstractPage {
 
     public String getProductName() {
         return this.productName.getText();
-    }
-
-
-    public ProductPage clickOnCurrentRegionSpanInNavBar() {
-        this.currentRegion.click();
-        return this;
-    }
-
-    public ProductPage clickOnNewRegionSpanInPopUp() {
-        driverWait.until(ExpectedConditions
-                .presenceOfElementLocated(byNewRegion)).click();
-        return this;
-    }
-
-    public String getNewRegionSpanInPopUpName() {
-        return driverWait.until(ExpectedConditions
-                .presenceOfElementLocated(byNewRegion)).getText();
-    }
-
-    public String getCurrentRegionNearTheProductName() {
-        return driverWait.until(ExpectedConditions
-                .presenceOfElementLocated(byCurrentRegion)).getText();
     }
 }

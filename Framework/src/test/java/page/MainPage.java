@@ -44,4 +44,36 @@ public class MainPage extends AbstractPage {
         this.freeDeliveryButton.click();
         return new FreeDeliveryPage();
     }
+
+    //тестовый метод смены города
+
+    @FindBy(xpath = "//li[@class = 'geocity item']")
+    private WebElement changeCityButton;
+
+    @FindBy(xpath = "//li[@data-city-id = '1985372']/span")
+    private WebElement city;
+
+    public String getCurrentCityName(){
+        return  driverWait.until(ExpectedConditions
+                .presenceOfElementLocated(byCurrentRegionNearTheProduct)).getText();
+    }
+
+    public MainPage openCities(){
+        changeCityButton.click();
+        return this;
+    }
+
+    public String getNewCityName(){
+        return  driverWait.until(ExpectedConditions
+                .presenceOfElementLocated(byNewRegionSpanInPopUp)).getText();
+    }
+
+    private static final By byCurrentRegionNearTheProduct = By.xpath("//li[@class = 'geocity item']");
+    private static final By byNewRegionSpanInPopUp = By.xpath("//li[@data-city-id='1985372']/span");
+
+    public MainPage chooseNewCity(){
+        driverWait.until(ExpectedConditions
+                .presenceOfElementLocated(byNewRegionSpanInPopUp)).click();
+        return this;
+    }
 }

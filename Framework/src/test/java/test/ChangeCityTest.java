@@ -1,28 +1,24 @@
 package test;
 
 import org.testng.annotations.Test;
+import page.MainPage;
 import page.ProductPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ChangeCityTest extends CommonCondition {
     @Test
-    public void changeCityTest() {
-        String productPageUrl = "https://by.wildberries.ru/catalog/16363902/detail.aspx";
+    public void changeCityTest() throws InterruptedException {
+        MainPage mainPage = new MainPage().openPage().openCities();
 
-        ProductPage productPage = new ProductPage(productPageUrl);
+        Thread.sleep(1000);
+        String expectedCity = mainPage.getNewCityName();
 
-        String newRegionName  = productPage
-                .openPage()
-                .clickOnCurrentRegionSpanInNavBar()
-                .getNewRegionSpanInPopUpName();
+        mainPage = mainPage.chooseNewCity();
+        Thread.sleep(1000);
 
-        System.out.println(newRegionName);
+        String actualCity = mainPage.getCurrentCityName();
 
-        String expectedNewRegionName = productPage
-                .clickOnNewRegionSpanInPopUp()
-                .getCurrentRegionNearTheProductName();
-
-        assertThat(newRegionName).isEqualTo(expectedNewRegionName);
+        assertThat(actualCity).isEqualTo(expectedCity);
     }
 }

@@ -31,7 +31,6 @@ public class BasketTest extends CommonCondition {
         String actualSize = basketPage
                 .getProductSize();
 
-        System.out.println(expectedSize);
         assertThat(actualName).contains(expectedName);
         assertThat(actualSize).isEqualTo(expectedSize);
     }
