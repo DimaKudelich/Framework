@@ -1,6 +1,5 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -50,10 +49,10 @@ public class MainPage extends AbstractPage {
     private WebElement changeCityButton;
 
     @FindBy(xpath = "//li[@data-city-id = '1985372']/span")
-    private WebElement city;
+    private WebElement newCity;
 
     public String getCurrentCityName(){
-        driverWait.until(ExpectedConditions.invisibilityOf(city));
+        driverWait.until(ExpectedConditions.invisibilityOf(newCity));
         return changeCityButton.getText();
     }
 
@@ -63,11 +62,11 @@ public class MainPage extends AbstractPage {
     }
 
     public String getNewCityName(){
-        return driverWait.until(ExpectedConditions.visibilityOf(city)).getText();
+        return driverWait.until(ExpectedConditions.visibilityOf(newCity)).getText();
     }
 
     public MainPage chooseNewCity(){
-        city.click();
+        newCity.click();
         return this;
     }
 }

@@ -3,13 +3,14 @@ package test;
 import org.testng.annotations.Test;
 import page.BasketPage;
 import page.ProductPage;
+import service.ProductPageDataReader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class BasketTest extends CommonCondition {
     @Test
     public void addToCartTest() {
-        String productPageUrl = "https://by.wildberries.ru/catalog/16363902/detail.aspx";
+        String productPageUrl = ProductPageDataReader.getProductPageUrl();
 
         ProductPage productPage = new ProductPage(productPageUrl);
 
